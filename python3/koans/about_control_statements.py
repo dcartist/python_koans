@@ -72,7 +72,6 @@ class AboutControlStatements(Koan):
             result.append("Contestant: '" + knight + "'   Answer: '" + answer + "'")
 
         text = "R"
-
         self.assertRegex(result[2], text)
 
         self.assertNotRegex(result[0], text)
