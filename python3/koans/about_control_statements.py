@@ -10,7 +10,7 @@ class AboutControlStatements(Koan):
             result = 'true value'
         else:
             result = 'false value'
-        self.assertEqual(__, result)
+        self.assertEqual(True, result)
 
     def test_if_then_statements(self):
         result = 'default value'
