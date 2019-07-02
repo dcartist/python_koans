@@ -37,10 +37,10 @@ class AboutLists(Koan):
     def test_slicing_lists(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
 
-        self.assertEqual('peanut', noms[0:1])
-        self.assertEqual('peanut', 'butter', noms[0:2])
+        self.assertEqual(['peanut'], noms[0:1])
+        self.assertEqual(['peanut', 'butter'], noms[0:2])
         self.assertEqual([], noms[2:2])
-        self.assertEqual('and', 'jelly', noms[2:20])
+        self.assertEqual(['and', 'jelly'], noms[2:20])
         self.assertEqual([], noms[4:0])
         self.assertEqual([], noms[4:100])
         self.assertEqual([], noms[5:0])
@@ -48,8 +48,8 @@ class AboutLists(Koan):
     def test_slicing_to_the_edge(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
 
-        self.assertEqual('and', 'jelly', noms[2:])
-        self.assertEqual('peanut', 'butter', noms[:2])
+        self.assertEqual(['and', 'jelly'], noms[2:])
+        self.assertEqual(['peanut', 'butter'], noms[:2])
 
     def test_lists_and_ranges(self):
         self.assertEqual(range, type(range(5)))
@@ -98,11 +98,11 @@ class AboutLists(Koan):
         queue = [1, 2]
         queue.append('last')
 
-        self.assertEqual(__, queue)
+        self.assertEqual([1, 2, 'last'], queue)
 
         popped_value = queue.pop(0)
-        self.assertEqual(__, popped_value)
-        self.assertEqual(__, queue)
+        self.assertEqual(1, popped_value)
+        self.assertEqual([2, 'last'], queue)
 
         # Note, popping from the left hand side of a list is
         # inefficient. Use collections.deque instead.
